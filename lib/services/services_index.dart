@@ -1,0 +1,12 @@
+export 'package:notes_app/services/get_it_service/get_it_dependencies.dart';
+export 'package:intl/date_symbol_data_local.dart';
+export 'package:get_it/get_it.dart';
+export 'package:notes_app/services/ui_service/ui_colors.dart';
+export 'package:uuid/uuid.dart';
+export 'package:notes_app/services/ui_service/app_data.dart';
+export 'package:notes_app/services/firebase/firebase_service.dart';
+export 'package:notes_app/services/ui_service/ui_fonts.dart';
+export 'package:notes_app/services/date_time_service.dart';
+export 'package:notes_app/services/image_picker_service.dart';
+export 'package:notes_app/services/firebase/note_service.dart';
+export 'package:intl/intl.dart';
