@@ -116,7 +116,8 @@ class _DateTextFieldState extends State<DateTextField> {
       height: 200,
       child: CupertinoDatePicker(
         mode: CupertinoDatePickerMode.date,
-        initialDateTime: selectedDate,
+        minimumDate: DateTime.now(),
+        initialDateTime: DateTime.now(),
         onDateTimeChanged: (DateTime newDate) {
           _updateSelectedDate(newDate);
         },

@@ -72,6 +72,7 @@ class _TitleTextFieldState extends State<StartEndTimeTextField> {
         CupertinoDatePicker(
           initialDateTime: widget.initialDate,
           mode: CupertinoDatePickerMode.time,
+          minimumDate: DateTime.now(),
           use24hFormat: true,
           onDateTimeChanged: (DateTime newTime) {
             _updateTextFieldAndBloc(newTime);
