@@ -24,7 +24,7 @@ class ControllerModel {
 
 class TextFieldBloc extends Bloc<TextFieldEvent, TextFieldState> {
   TextFieldBloc()
-      : super(const TextFieldState(controllers: {}, isValid: true)) {
+      : super(const TextFieldState(controllers: {}, isValid: false)) {
     on<TextFieldControllerAddedEvent>(_controllerAddedEvent);
     on<TextFieldControllerTextChangedEvent>(_onTextChangedEvent);
 
@@ -60,8 +60,7 @@ class TextFieldBloc extends Bloc<TextFieldEvent, TextFieldState> {
         Map.from(state.controllers);
 
     state.controllers.forEach((key, value) {
-      final isValid =
-          event.buttonIsTapped ? _isValid(value.controller.text) : true;
+      final isValid = _isValid(value.controller.text);
       updatedControllers[key] =
           ControllerModel(controller: value.controller, isValid: isValid);
     });

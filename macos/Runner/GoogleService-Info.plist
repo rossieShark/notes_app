@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>525912087392-jbjggdfqu4a9eijqnegkeoosqsm01imo.apps.googleusercontent.com</string>
+	<string>1053006820099-nctlll9vfjh5nun15dvukteriq5sq4lo.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.525912087392-jbjggdfqu4a9eijqnegkeoosqsm01imo</string>
+	<string>com.googleusercontent.apps.1053006820099-nctlll9vfjh5nun15dvukteriq5sq4lo</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>525912087392-mu8upgbv3buo4lbarjvnr169d7ksuq0r.apps.googleusercontent.com</string>
+	<string>1053006820099-1bghlnm4e8v3b4qkus8m2ogkcngg15gd.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyByQf2EfzcNeKY1U7WrbZlBpBbAP4dgEqg</string>
+	<string>AIzaSyAGkNYXIBZTCzn4Ih_G4RV0Lvecbi6QWtk</string>
 	<key>GCM_SENDER_ID</key>
-	<string>525912087392</string>
+	<string>1053006820099</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.musicPlayerR</string>
+	<string>com.example.notesApp.RunnerTests</string>
 	<key>PROJECT_ID</key>
-	<string>audioplayer-517db</string>
+	<string>notesapp-1a903</string>
 	<key>STORAGE_BUCKET</key>
-	<string>audioplayer-517db.appspot.com</string>
+	<string>notesapp-1a903.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:525912087392:ios:bad7aa18c6ee525fae5c05</string>
+	<string>1:1053006820099:ios:3e0f742d28944f15dfef36</string>
 </dict>
 </plist>

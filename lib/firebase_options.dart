@@ -63,11 +63,13 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAGkNYXIBZTCzn4Ih_G4RV0Lvecbi6QWtk',
-    appId: '1:1053006820099:ios:ff5037ec7dd561dbdfef36',
+    appId: '1:1053006820099:ios:f4b4d3fb61512632dfef36',
     messagingSenderId: '1053006820099',
     projectId: 'notesapp-1a903',
     storageBucket: 'notesapp-1a903.appspot.com',
-    iosBundleId: 'com.example.notesApp',
+    androidClientId: '1053006820099-1bghlnm4e8v3b4qkus8m2ogkcngg15gd.apps.googleusercontent.com',
+    iosClientId: '1053006820099-b7uu4s4isaq74mgfdo6ill7hhdfia03e.apps.googleusercontent.com',
+    iosBundleId: 'com.example.notesAppR',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -76,6 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1053006820099',
     projectId: 'notesapp-1a903',
     storageBucket: 'notesapp-1a903.appspot.com',
+    androidClientId: '1053006820099-1bghlnm4e8v3b4qkus8m2ogkcngg15gd.apps.googleusercontent.com',
+    iosClientId: '1053006820099-nctlll9vfjh5nun15dvukteriq5sq4lo.apps.googleusercontent.com',
     iosBundleId: 'com.example.notesApp.RunnerTests',
   );
 }

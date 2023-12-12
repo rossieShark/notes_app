@@ -28,6 +28,6 @@ class TextFieldControllerTextChangedEvent extends TextFieldEvent {
 }
 
 class TextFieldControllerIsValidEvent extends TextFieldEvent {
-  final bool buttonIsTapped;
-  TextFieldControllerIsValidEvent(this.buttonIsTapped);
+  // final bool buttonIsTapped;
+  TextFieldControllerIsValidEvent();
 }
