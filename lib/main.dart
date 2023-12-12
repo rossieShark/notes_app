@@ -7,13 +7,13 @@ import 'package:notes_app/ui/navigation/go_router.dart';
 import 'package:notes_app/ui/widgets/widgets_index.dart';
 
 void main() async {
-  SetGetItDependencies().setUpServices();
-  SetGetItDependencies().setUpBlocs();
-
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  SetGetItDependencies().setUpServices();
+  SetGetItDependencies().setUpBlocs();
+
   await initializeDateFormatting('en');
   runApp(MultiBlocProvider(providers: [
     BlocProvider<TabBarBloc>(create: (context) => TabBarBloc()),
