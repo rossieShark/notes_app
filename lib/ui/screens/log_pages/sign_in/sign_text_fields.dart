@@ -30,6 +30,7 @@ class CreateSignTextFields extends StatelessWidget {
             child: AuthTextField(
               obscureText: false,
               focusNode: _emailFocusNode,
+              keyboardType: TextInputType.emailAddress,
               controller: _loginTextController,
               hintText: 'Enter email',
             ),

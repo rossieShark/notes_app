@@ -9,6 +9,7 @@ class AuthTextField extends StatefulWidget {
   final FocusNode focusNode;
   final bool obscureText;
   final double width;
+  final TextInputType? keyboardType;
   final void Function(String)? onChanged;
 
   const AuthTextField({
@@ -18,6 +19,7 @@ class AuthTextField extends StatefulWidget {
     required this.hintText,
     required this.focusNode,
     this.width = 400,
+    this.keyboardType,
     this.onChanged,
   }) : super(key: key);
 
@@ -38,6 +40,7 @@ class _AuthTextFieldState extends State<AuthTextField> {
           obscureText: widget.obscureText,
           controller: widget.controller,
           focusNode: widget.focusNode,
+          keyboardType: widget.keyboardType,
           cursorColor: AppColors.pink,
           onChanged: widget.onChanged,
           decoration: InputDecoration(

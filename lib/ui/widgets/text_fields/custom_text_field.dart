@@ -27,6 +27,7 @@ class CustomTextField extends StatefulWidget {
   final int maxLines;
   final TextStyle? labelStyle;
   final double padding;
+
   final Color enabledBorderColor;
   final Color focusedBorderColor;
   final void Function(String)? onChanged;

@@ -15,6 +15,7 @@ class EmailTextFields extends StatelessWidget {
         obscureText: false,
         focusNode: focusNode,
         controller: signUpTextController,
+        keyboardType: TextInputType.emailAddress,
         hintText: 'Enter email',
       ),
     );
