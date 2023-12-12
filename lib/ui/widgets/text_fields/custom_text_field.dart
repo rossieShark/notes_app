@@ -64,7 +64,15 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       ?.isValid ??
                   true
               ? ''
-              : 'Empty field',
+              : context
+                      .watch<TextFieldBloc>()
+                      .state
+                      .controllers[widget.labelText]!
+                      .controller
+                      .text
+                      .isNotEmpty
+                  ? null // Set error text to null when text field is changed
+                  : 'Empty field',
           contentPadding: EdgeInsets.symmetric(vertical: widget.padding),
           suffixIcon: widget.suffixIcon,
 

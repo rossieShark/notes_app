@@ -75,7 +75,10 @@ class _AddScreenContentState extends State<_AddScreenContent> {
           const SizedBox(
             height: 20,
           ),
-          TitleTextField(controller: _titleController),
+          TitleTextField(
+            controller: _titleController,
+            labelText: AppData().titleTextField,
+          ),
           const SizedBox(
             height: 10,
           ),
@@ -122,12 +125,12 @@ class _StartEndTimeTextField extends StatelessWidget {
       children: [
         TextFieldContainer(
           controller: _startTimeController,
-          label: 'Start Time',
+          label: AppData().startTimeTextField,
         ),
         TextFieldContainer(
           controller: _endTimeController,
           initialDate: DateTime.now().add(const Duration(hours: 1)),
-          label: 'End Time',
+          label: AppData().endTimeTextField,
         )
       ],
     );
@@ -180,29 +183,35 @@ class _SaveButton extends StatelessWidget {
     const uuid = Uuid();
     final uniqueId = uuid.v4();
 
-    textFieldsBloc.add(TextFieldControllerIsValidEvent(true));
+    textFieldsBloc.add(TextFieldControllerIsValidEvent());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      // Wait for the event to be processed
-      if (state.isValid) {
-        bloc.add(AddNotesEvent(
-          NotesModel(
-            index: uniqueId,
-            category: category,
-            title: state.controllers['Title']?.controller.text ?? "Note",
-            date: state.controllers['Date']?.controller.text ?? "Note",
-            startTime:
-                state.controllers['Start Time']?.controller.text ?? "Note",
-            endTime: state.controllers['End Time']?.controller.text ?? "Note",
-            description:
-                state.controllers['Description']?.controller.text ?? "Note",
-            isComplete: false,
-            isOver: false,
-          ),
-        ));
-        textFieldsBloc.add(RemoveAllEvent());
-        Navigator.pop(context);
-      }
-    });
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+    // Wait for the event to be processed
+    if (state.isValid) {
+      bloc.add(AddNotesEvent(
+        NotesModel(
+          index: uniqueId,
+          category: category,
+          title: state.controllers[AppData().titleTextField]?.controller.text ??
+              "Note",
+          date: state.controllers[AppData().dateTextField]?.controller.text ??
+              "Note",
+          startTime: state
+                  .controllers[AppData().startTimeTextField]?.controller.text ??
+              "Note",
+          endTime:
+              state.controllers[AppData().endTimeTextField]?.controller.text ??
+                  "Note",
+          description: state.controllers[AppData().descriptionTextField]
+                  ?.controller.text ??
+              "Note",
+          isComplete: false,
+          isOver: false,
+        ),
+      ));
+      textFieldsBloc.add(RemoveAllEvent());
+      Navigator.pop(context);
+    }
+    // });
   }
 }

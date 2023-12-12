@@ -97,7 +97,7 @@ class _SaveButtonWidget extends StatelessWidget {
 
   void _onPressed(BuildContext context, TextFieldState state) {
     final textFieldsBloc = context.read<TextFieldBloc>();
-    textFieldsBloc.add(TextFieldControllerIsValidEvent(true));
+    textFieldsBloc.add(TextFieldControllerIsValidEvent());
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (state.isValid) {
         BlocProvider.of<NotesBloc>(context).add(

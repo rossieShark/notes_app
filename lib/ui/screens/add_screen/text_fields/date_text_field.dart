@@ -34,7 +34,7 @@ class _DateTextFieldState extends State<DateTextField> {
           TextFieldControllerTextChangedEvent(
             widget.controller,
             convertDate(selectedDate),
-            'Date',
+            AppData().dateTextField,
           ),
         );
   }
@@ -105,7 +105,7 @@ class _DateTextFieldState extends State<DateTextField> {
             TextFieldControllerTextChangedEvent(
               widget.controller,
               convertDate(picked),
-              'Date',
+              AppData().dateTextField,
             ),
           );
     }

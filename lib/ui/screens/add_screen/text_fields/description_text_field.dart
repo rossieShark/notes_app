@@ -38,9 +38,8 @@ class _DescriptionTextFieldState extends State<DescriptionTextField> {
         _hasFocus = _focusNode.hasFocus;
       });
     });
-    context
-        .read<TextFieldBloc>()
-        .add(TextFieldControllerAddedEvent(widget.controller, 'Description'));
+    context.read<TextFieldBloc>().add(TextFieldControllerAddedEvent(
+        widget.controller, AppData().descriptionTextField));
   }
 
   @override
@@ -75,7 +74,7 @@ class _DescriptionTextFieldState extends State<DescriptionTextField> {
           : null,
       onChanged: (value) {
         context.read<TextFieldBloc>().add(TextFieldControllerTextChangedEvent(
-            widget.controller, value, 'Description'));
+            widget.controller, value, AppData().descriptionTextField));
       },
     );
   }
