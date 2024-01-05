@@ -1,9 +1,11 @@
 // ignore_for_file: use_build_context_synchronously
+import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:notes_app/ui/navigation/auto_router.dart';
 import 'package:notes_app/ui/navigation/go_router.dart';
 import 'package:notes_app/ui/widgets/app_alert.dart';
 
@@ -46,7 +48,7 @@ class FireBaseFunctions {
     bool success = await FireBaseFunctions()
         .register(emailController.text, passwordController.text);
     if (success) {
-      return context.go(routeNameMap[RouteName.home]!);
+      // return context.go(routeNameMap[RouteName.home]!);
     } else {
       showDialog(
         context: context,
@@ -59,7 +61,7 @@ class FireBaseFunctions {
   Future<void> validSignWithGoogle(BuildContext context) async {
     bool success = await FireBaseFunctions().signInWithGoogle();
     if (success) {
-      return context.go(routeNameMap[RouteName.home]!);
+      // return context.go(routeNameMap[RouteName.home]!);
     } else {
       await showDialog(
         context: context,
@@ -141,7 +143,7 @@ class FireBaseFunctions {
       String email, String password, BuildContext context) async {
     bool success = await _signInCheck(email, password);
     if (success) {
-      return context.go(routeNameMap[RouteName.home]!);
+      return context.router.navigate(ButtomTabBarRoute());
     } else {
       showDialog(
         context: context,

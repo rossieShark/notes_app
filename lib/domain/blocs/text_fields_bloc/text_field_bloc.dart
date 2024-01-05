@@ -24,7 +24,7 @@ class ControllerModel {
 
 class TextFieldBloc extends Bloc<TextFieldEvent, TextFieldState> {
   TextFieldBloc()
-      : super(const TextFieldState(controllers: {}, isValid: false)) {
+      : super(const TextFieldState(controllers: {}, isValid: true)) {
     on<TextFieldControllerAddedEvent>(_controllerAddedEvent);
     on<TextFieldControllerTextChangedEvent>(_onTextChangedEvent);
 

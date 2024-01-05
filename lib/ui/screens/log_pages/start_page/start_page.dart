@@ -1,11 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:notes_app/resources/resources.dart';
 import 'package:notes_app/services/services_index.dart';
-
-import 'package:notes_app/ui/navigation/go_router.dart';
+import 'package:notes_app/ui/navigation/auto_router.dart';
 import 'package:notes_app/ui/widgets/widgets_index.dart';
 
+@RoutePage()
 class StartPage extends StatelessWidget {
   const StartPage({super.key});
 
@@ -44,7 +44,7 @@ class _SignMethodsWidget extends StatelessWidget {
           CustomButton(
               width: 140,
               onPressed: () {
-                context.go(routeNameMap[RouteName.sigIn]!);
+                context.router.navigate(const SignInRoute());
               },
               buttonText: 'Sign In'),
           const SizedBox(
@@ -53,7 +53,7 @@ class _SignMethodsWidget extends StatelessWidget {
           CustomButton(
               width: 140,
               onPressed: () {
-                context.go(routeNameMap[RouteName.signUp]!);
+                context.navigateTo(const SignUpRoute());
               },
               buttonText: 'Sign Up'),
           const SizedBox(

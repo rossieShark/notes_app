@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -8,8 +9,9 @@ import 'package:notes_app/services/services_index.dart';
 import 'package:notes_app/ui/screens/screens_index.dart';
 import 'package:notes_app/ui/widgets/widgets_index.dart';
 
-class AddScreen extends StatelessWidget {
-  const AddScreen({super.key});
+@RoutePage()
+class AddScreenPage extends StatelessWidget {
+  const AddScreenPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -144,9 +146,10 @@ class _BackButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButtonWidget(
       onPressed: () {
-        context.pop();
+        context.router.back();
       },
-      iconData: Platform.isIOS ? CupertinoIcons.back : Icons.arrow_back,
+      iconData: CupertinoIcons.back,
+      // iconData: Platform.isIOS ? CupertinoIcons.back : Icons.arrow_back,
       color: AppColors.green,
     );
   }
@@ -210,7 +213,7 @@ class _SaveButton extends StatelessWidget {
         ),
       ));
       textFieldsBloc.add(RemoveAllEvent());
-      Navigator.pop(context);
+      context.router.back();
     }
     // });
   }

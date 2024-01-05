@@ -1,14 +1,16 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+
 import 'package:notes_app/services/services_index.dart';
-import 'package:notes_app/ui/navigation/go_router.dart';
+
 import 'package:notes_app/resources/resources.dart';
 
 import 'package:notes_app/ui/screens/screens_index.dart';
 import 'package:notes_app/ui/widgets/widgets_index.dart';
 
+@RoutePage()
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
 
@@ -139,7 +141,7 @@ class _CreateRegisterWidget extends StatelessWidget {
             style: Theme.of(context).textTheme.labelLarge),
         GestureDetector(
             onTap: () {
-              context.go(routeNameMap[RouteName.signUp]!);
+              // context.go(routeNameMap[RouteName.signUp]!);
             },
             child: const Text(
               ' Sign Up',

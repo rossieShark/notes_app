@@ -1,19 +1,20 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import 'package:go_router/go_router.dart';
 import 'package:notes_app/services/services_index.dart';
-import 'package:notes_app/ui/navigation/go_router.dart';
+import 'package:notes_app/ui/navigation/auto_router.dart';
 import 'package:notes_app/ui/screens/screens_index.dart';
 import 'package:notes_app/ui/widgets/widgets_index.dart';
 
-class NotesScreen extends StatefulWidget {
-  const NotesScreen({super.key});
+@RoutePage()
+class NotesScreenPage extends StatefulWidget {
+  const NotesScreenPage({super.key});
 
   @override
-  State<NotesScreen> createState() => _NotesScreenState();
+  State<NotesScreenPage> createState() => _NotesScreenPageState();
 }
 
-class _NotesScreenState extends State<NotesScreen> {
+class _NotesScreenPageState extends State<NotesScreenPage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -49,7 +50,7 @@ class _AddButton extends StatelessWidget {
       width: 100,
       color: AppColors.green,
       onPressed: () {
-        context.push(routeNameMap[RouteName.addNote]!);
+        context.router.push(const AddScreenRoute());
       },
       buttonText: _buttonText,
     );
