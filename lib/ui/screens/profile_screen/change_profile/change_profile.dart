@@ -25,21 +25,7 @@ class _ChangeUserinfoState extends State<ChangeUserinfo> {
   @override
   void initState() {
     super.initState();
-    _firebaseAuthCheck();
     _userNameTextController = TextEditingController();
-  }
-
-  void _firebaseAuthCheck() {
-    FirebaseAuth.instance.authStateChanges().listen((User? user) {
-      setState(() {
-        _user = user;
-      });
-      if (user == null) {
-        print('User is currently signed out!');
-      } else {
-        print('User is signed in!');
-      }
-    });
   }
 
   @override

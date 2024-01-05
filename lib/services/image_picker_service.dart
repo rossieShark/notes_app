@@ -3,10 +3,12 @@ import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 
 import 'package:image_picker/image_picker.dart';
+import 'package:logging/logging.dart';
+import 'package:notes_app/services/logger.dart';
 
 class ImagePickerService {
   final _picker = ImagePicker();
-
+  final Logger _logger = getLogger('ImagePickerService');
   Future<String?> pickImageFromGallery() async {
     try {
       final image = await _picker.pickImage(
@@ -26,7 +28,7 @@ class ImagePickerService {
       final imageUrl = await ref.getDownloadURL();
       return imageUrl;
     } catch (e) {
-      print('Error picking/uploading image: $e');
+      _logger.severe('Error picking/uploading image: $e');
       return null;
     }
   }

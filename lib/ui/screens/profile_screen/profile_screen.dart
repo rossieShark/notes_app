@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/resources/resources.dart';
 import 'package:notes_app/services/services_index.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart' as modal;
+import 'package:notes_app/ui/navigation/auto_router.dart';
 import 'package:notes_app/ui/screens/screens_index.dart';
 import 'package:notes_app/ui/widgets/widgets_index.dart';
 
@@ -107,7 +108,7 @@ class _DeleteAccountWidget extends StatelessWidget {
         onTap: () async {
           await FireBaseFunctions().deleteAccount();
           // ignore: use_build_context_synchronously
-          //context.pushReplacement(routeNameMap[RouteName.start]!);
+          context.router.replace(const StartRoute());
         },
         child: const Text(
           'Delete account',
@@ -127,7 +128,7 @@ class _LogOutWidget extends StatelessWidget {
       onTap: () async {
         await FireBaseFunctions().signOut();
         // ignore: use_build_context_synchronously
-        // context.pushReplacement(routeNameMap[RouteName.start]!);
+        context.router.replace(const StartRoute());
       },
       iconData: Icons.logout,
       buttonText: 'Log out',

@@ -3,23 +3,24 @@ import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:logging/logging.dart';
+import 'package:notes_app/services/logger.dart';
 import 'package:notes_app/ui/navigation/auto_router.dart';
-import 'package:notes_app/ui/navigation/go_router.dart';
 import 'package:notes_app/ui/widgets/app_alert.dart';
 
 class FireBaseFunctions {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   User? user;
+  final Logger _logger = getLogger('NotesBloc');
   Future<bool> signInWithGoogle() async {
     try {
       await FirebaseAuth.instance.signOut();
       FirebaseAuth.instance.userChanges().listen((User? user) {
         if (user == null) {
-          print('User is currently signed out!');
+          _logger.info('User is currently signed out!');
         } else {
-          print('User is signed in!');
+          _logger.info('User is signed in!');
         }
       });
       GoogleSignIn googleSignIn = GoogleSignIn(
@@ -38,7 +39,7 @@ class FireBaseFunctions {
       await FirebaseAuth.instance.signInWithCredential(credential);
       return true;
     } catch (e) {
-      print('Error google signing in: $e');
+      _logger.severe('Error google signing in: $e');
       return false;
     }
   }
@@ -48,7 +49,7 @@ class FireBaseFunctions {
     bool success = await FireBaseFunctions()
         .register(emailController.text, passwordController.text);
     if (success) {
-      // return context.go(routeNameMap[RouteName.home]!);
+      return context.router.navigate(const ButtomTabBarRoute());
     } else {
       showDialog(
         context: context,
@@ -61,7 +62,7 @@ class FireBaseFunctions {
   Future<void> validSignWithGoogle(BuildContext context) async {
     bool success = await FireBaseFunctions().signInWithGoogle();
     if (success) {
-      // return context.go(routeNameMap[RouteName.home]!);
+      return context.router.navigate(const ButtomTabBarRoute());
     } else {
       await showDialog(
         context: context,
@@ -105,13 +106,12 @@ class FireBaseFunctions {
 
   Future<void> deleteAccount() async {
     final User? user = _auth.currentUser;
-
     if (user != null) {
       try {
         await user.delete();
-        print('User account deleted');
+        _logger.info('User account deleted');
       } catch (e) {
-        print('Error deleting account: $e');
+        _logger.severe('Error deleting account: $e');
       }
     }
   }
@@ -119,10 +119,9 @@ class FireBaseFunctions {
   Future<void> signOut() async {
     try {
       await _auth.signOut();
-
-      print('User signed out');
+      _logger.info('User signed out');
     } catch (e) {
-      print('Error signing out: $e');
+      _logger.severe('Error signing out: $e');
     }
   }
 
@@ -134,7 +133,7 @@ class FireBaseFunctions {
       );
       return true;
     } catch (e) {
-      print('Error signing in: $e');
+      _logger.severe('Error signing in: $e');
       return false;
     }
   }
@@ -143,7 +142,7 @@ class FireBaseFunctions {
       String email, String password, BuildContext context) async {
     bool success = await _signInCheck(email, password);
     if (success) {
-      return context.router.navigate(ButtomTabBarRoute());
+      return context.router.navigate(const ButtomTabBarRoute());
     } else {
       showDialog(
         context: context,
@@ -161,7 +160,7 @@ class FireBaseFunctions {
       );
       return true;
     } catch (e) {
-      print('Error signing up: $e');
+      _logger.severe('Error signing up: $e');
       return false;
     }
   }
@@ -170,7 +169,7 @@ class FireBaseFunctions {
       BuildContext context, User? user) async {
     if (password == newPassword) {
       await user?.updatePassword(password);
-      context.pop();
+      context.router.back();
     } else {
       showDialog(
         context: context,

@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:logging/logging.dart';
 import 'package:notes_app/domain/blocs/bloc_index.dart';
 import 'package:notes_app/domain/models/notes_model.dart';
+import 'package:notes_app/services/logger.dart';
 
 import 'package:notes_app/services/services_index.dart';
 
@@ -9,6 +11,7 @@ class NotesBloc extends Bloc<NotesBlocEvent, NotesState> {
   final NoteService _firestoreService;
   final DateTimeService _dateService;
   late Timer _timer;
+  final Logger _logger = getLogger('NotesBloc');
   NotesBloc(this._firestoreService, this._dateService)
       : super(const NotesState.loading()) {
     on<AddNotesEvent>(onAddNotesEvent);
@@ -88,7 +91,7 @@ class NotesBloc extends Bloc<NotesBlocEvent, NotesState> {
         emit(NotesState.loaded(data: notes));
       }
     } catch (error) {
-      print("Error fetching and filtering notes: $error");
+      _logger.severe("Error fetching and filtering notes: $error");
     }
   }
 

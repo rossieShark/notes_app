@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/services/services_index.dart';
 
 import 'package:notes_app/resources/resources.dart';
+import 'package:notes_app/ui/navigation/auto_router.dart';
 
 import 'package:notes_app/ui/screens/screens_index.dart';
 import 'package:notes_app/ui/widgets/widgets_index.dart';
@@ -141,7 +142,7 @@ class _CreateRegisterWidget extends StatelessWidget {
             style: Theme.of(context).textTheme.labelLarge),
         GestureDetector(
             onTap: () {
-              // context.go(routeNameMap[RouteName.signUp]!);
+              context.router.push(const SignUpRoute());
             },
             child: const Text(
               ' Sign Up',

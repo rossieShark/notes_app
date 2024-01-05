@@ -76,13 +76,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   : 'Empty field',
           contentPadding: EdgeInsets.symmetric(vertical: widget.padding),
           suffixIcon: widget.suffixIcon,
-
           hintText: widget.focusNode.hasFocus ? '' : widget.labelText,
           hintStyle: const TextStyle(color: Colors.black),
           labelStyle:
               widget.labelStyle ?? Theme.of(context).textTheme.labelLarge,
           floatingLabelBehavior: FloatingLabelBehavior.auto,
-          // border: InputBorder(borderSide.: BorderSide()),
         ),
         onChanged: (value) => widget.onChanged,
         focusNode: widget.focusNode,

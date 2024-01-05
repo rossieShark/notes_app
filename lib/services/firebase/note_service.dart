@@ -32,7 +32,6 @@ class NoteService {
   }
 
   Future<void> updateNote(NotesModel note) async {
-    print(notesCollection.doc(note.index));
     await notesCollection.doc(note.index).update({
       'index': note.index,
       'title': note.title,
@@ -49,7 +48,6 @@ class NoteService {
 
   Stream<List<NotesModel>> getNotes() {
     User? user = _auth.currentUser;
-    print(user?.uid);
 
     if (user != null) {
       return notesCollection

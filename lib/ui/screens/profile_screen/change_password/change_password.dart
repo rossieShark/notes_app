@@ -27,7 +27,6 @@ class _ChangePasswordState extends State<ChangePassword> {
   void initState() {
     super.initState();
     _initializeValues();
-    _authState();
   }
 
   void _initializeValues() {
@@ -41,21 +40,6 @@ class _ChangePasswordState extends State<ChangePassword> {
     });
     _passwordController = TextEditingController();
     _newPasswordController = TextEditingController();
-  }
-
-  void _authState() {
-    FirebaseAuth.instance.authStateChanges().listen((User? user) {
-      if (mounted) {
-        setState(() {
-          _user = user;
-        });
-        if (user == null) {
-          print('User is currently signed out!');
-        } else {
-          print('User is signed in!');
-        }
-      }
-    });
   }
 
   @override
