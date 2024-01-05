@@ -1,7 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:go_router/go_router.dart';
-import 'package:notes_app/ui/screens/screens_index.dart';
+
 
 // final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 // final _shellNavigatorKey = GlobalKey<NavigatorState>();

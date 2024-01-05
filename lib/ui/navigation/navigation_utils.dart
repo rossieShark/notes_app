@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
 
-import 'package:go_router/go_router.dart';
-import 'package:notes_app/domain/blocs/bloc_index.dart';
-
-import 'package:notes_app/ui/navigation/go_router.dart';
 
 // class NavigationUtils {
 //   static void tabBarRoutes(BuildContext context, int index) {

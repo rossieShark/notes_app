@@ -1,8 +1,6 @@
-import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:notes_app/domain/blocs/bloc_index.dart';
 import 'package:notes_app/domain/models/models_index.dart';
 import 'package:notes_app/services/services_index.dart';
